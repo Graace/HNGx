@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HNGx task 1</title>
+
+  <link rel="stylesheet" href="sytle.css">
+  <link rel="stylesheet" href="icofont/icofont.min.css">
+</head>
+<body>
+
+  <!-- ###### Header ##### -->
+  <section id="header">
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#header ">Home</a></li>
+          <li><a href="#about ">About</a></li>
+          <li><a href="#number ">Numbers</a></li>
+          <li><a href=" #contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-text">
+        <p>WEB DEVELOPMENT (FRONT-END) </p>
+        <h1>Hi, I am <span data-testid = "slackUserName">Anwar Grace</span>.<br>Welcome to my portfolio</h1>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ##### About ##### -->
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-1">
+          <img src="images/image2.jpeg" alt="Anwar-Grace" data-testid="slackDisplayImage">
+
+        </div>
+
+        <div class="col-2">
+          <h1 class="sub_title"> About Me</h1>
+          <p >I am Grace Anwar. I am from Ebonyi. I got accepted into the HNGx internship on <span class="currentDayOfTheWeek" data-testid="currentDayOfTheWeek"></span> to learn <span data-testid="myTrack">Front-end web development on <span class="timeOfTheWeek" data-testid="timeOfTheWeek"></span></span>. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque veritatis aliquid expedita, modi voluptatem reiciendis quos velit pariatur a rem repudiandae possimus sequi! Reprehenderit ut doloribus ipsum atque eius similique.
+          </p>
+
+          <div class="tab_title">
+            <p class="tab_links active_link" onclick="opentab('skills')">Skills</p>
+
+            <p class="tab_links"  onclick="opentab('experience')">Experience</p>
+
+            <p class="tab_links"  onclick="opentab('education')">Education</p>
+          </div>
+
+          <div class="tab-content active" id="skills">
+            <ul>
+              <li><span>Front-End</span><br>Create and maintain website</li>
+
+              <li><span>App Development</span><br>Building Andriod or IOS apps</li>
+
+              <li><span>Data Analysis</span><br>Gather and interpret data</li>
+
+            </ul>
+          </div>
+
+          <div class="tab-content" id="experience">
+            <ul>
+              <li><span>2021-Date</span><br>Internship at Script Route</li>
+
+              <li><span>2019-2020</span><br>Internship at coin digital</li>
+
+              <li><span>2016-2018</span><br>Head of department at Anwar Associates</li>
+
+            </ul>
+          </div>
+
+          <div class="tab-content" id="education">
+            <ul>
+              <li><span>2021</span><br>Script Route</li>
+
+              <li><span>2020</span><br>Bay Training Intstitute</li>
+
+              <li><span>2016</span><br>MBA from IMT</li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ###### Numbers ####### -->
+  <section class="container-num" id="number">
+    <div class="flex-container">
+      <div class="item-4 item num">
+        <h2>14<span>+</span></h2>
+        <p>Partners</p>
+      </div>
+
+      <div class="item-4 item num">
+        <h2>55<span>+</span></h2>
+        <p>Projects Done</p>
+      </div>
+
+      <div class="item-4 item num">
+        <h2>89<span>+</span></h2>
+        <p>Happy clients</p>
+      </div>
+
+      <div class="item-4 item num">
+        <h2>150<span>+</span></h2>
+        <p>Meetings</p>
+     </div>
+    </div>
+  </section>
+
+  <!-- ######## Contact ####### -->
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact_left">
+          <h1 class="sub_title">Contact Me</h1>
+          <p>Email: grace.anwar@gmail.com</p>
+          <p class="link" data-testid="gitURL">Github:<a href=""> https://github.com/Graace/HGNx-tasks.git</a></p>
+          <p>Phone No.: 07089807995</p>
+
+          <a href="images/Resumee.pdf" download class="btn btn2">DOWNLOAD CV</a>
+        </div>
+
+        <div class="contact_right">
+
+          <form action="">
+            <input type="text" name="Name" placeholder="Your Name" required>
+
+            <input type="email" name="email" placeholder="email@gmail.com" required>
+
+            <textarea name="Message"  rows="6" placeholder="Your message"></textarea>
+
+            <button type="submit" class="btn btn2">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var tablinks = document.getElementsByClassName("tab_links");
+
+    var tabcontents = document.getElementsByClassName("tab-content");
+
+  function opentab(tabname){
+    for(tablink of tablinks){
+      tablink.classList.remove("active_link");
+    }
+
+    for(tabcontent of tabcontents){
+      tabcontent.classList.remove("active");
+    }
+
+    event.currentTarget.classList.add("active_link");
+    document.getElementById(tabname).classList.add("active");
+  }
+
+  function today() {
+  
+   const day = document.querySelector(".currentDayOfTheWeek");
+   const UTC = document.querySelector(".timeOfTheWeek");
+
+   const weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+   ];
+
+   const currentTimeMiliseconds = Date.now();
+   const currentDate = new Date();
+   const currentweekDays = weekDays[currentDate.getDay()];
+
+   const currentTime = currentTimeMiliseconds;
+
+   
+   day.textContent = currentweekDays;
+   UTC.textContent = currentTime;
+  }
+
+  today();
+
+
+
+</script>
+  
+</body>
+</html>
